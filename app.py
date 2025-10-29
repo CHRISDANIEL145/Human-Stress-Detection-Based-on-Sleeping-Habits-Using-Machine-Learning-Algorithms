@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, jsonify
 import numpy as np
 import pickle
 from tensorflow.keras.models import load_model
+import os
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -60,6 +61,7 @@ def predict():
     except Exception as e:
         return jsonify({"error": str(e)})
 
-# Run the Flask app
-if __name__ == '__main__':
-    app.run(debug=True)
+# Run the Flask app for Render deployment
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
