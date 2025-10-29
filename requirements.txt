@@ -17,7 +17,8 @@ pandas
 scikit-learn
 tensorflow
 h5py
-pickle5
+pickle
+
 
 
 
